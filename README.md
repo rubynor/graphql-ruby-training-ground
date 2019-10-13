@@ -1,24 +1,30 @@
-# README
+# GRAPHQL-RUBY Training Ground
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simply working code, real examples 
 
-Things you may want to cover:
+Wishlist
 
-* Ruby version
+-[x] Standard Rails setup (followed https://github.com/rubynor/rails-setup)
 
-* System dependencies
+-[x] Simple queries
 
-* Configuration
+-[x] Complex relation with *habtm* models
 
-* Database creation
+-[x] Example of leaking data of habtm relation
+-[ ] Example of non-leaking date from habtm relation
+-[ ] Example of optimized DB queries from nested graphql query.
 
-* Database initialization
+## Test for yourself
 
-* How to run the test suite
+    bundle
+    rails db:setup
+    foreman s
+    #localhost:3000
+    # sign in with ole@example.com pwd dummy123
+    
+## Queries
 
-* Services (job queues, cache servers, search engines, etc.)
+### Example implementation with query leaking data
 
-* Deployment instructions
+    
 
-* ...
