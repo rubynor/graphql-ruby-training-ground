@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_144201) do
   create_table "accountants_companies", id: false, force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "accountant_id", null: false
-    t.index ["accountant_id", "company_id"], name: "index_accountants_companies_on_accountant_id_and_company_id"
-    t.index ["company_id", "accountant_id"], name: "index_accountants_companies_on_company_id_and_accountant_id"
+    t.index ["company_id", "accountant_id"], name: "index_accountants_companies_on_company_id_and_accountant_id", unique: true
   end
 
   create_table "companies", force: :cascade do |t|

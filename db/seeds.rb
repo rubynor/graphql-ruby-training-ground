@@ -12,7 +12,6 @@ awesomeco = Company.create!(name: 'AwesomeCo')
 boringco = Company.create!(name: 'BoringCo')
 
 mr_smith = Accountant.create!(name: "Mr. Smith")
-mr_smith.companies << boringco
 awesomeco.accountants << mr_smith
 boringco.accountants << mr_smith
 
