@@ -17,6 +17,7 @@ Wishlist
 ## Test for yourself
 
     bundle
+    cp config/database.yml.sample config/database.yml
     rails db:setup
     foreman s
     #localhost:3000
