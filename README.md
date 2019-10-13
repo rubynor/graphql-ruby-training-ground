@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [GRAPHQL-RUBY Training Ground](#graphql-ruby-training-ground)
+  - [Test for yourself](#test-for-yourself)
+  - [Examples](#examples)
+    - [Data leak - Example](#data-leak---example)
+    - [No Leak - Example](#no-leak---example)
+    - [DB-Optimization](#db-optimization)
+- [Contribution](#contribution)
+- [License](#license)
+- [About Rubynor](#about-rubynor)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # GRAPHQL-RUBY Training Ground
 
 Simply working code, real examples 
@@ -86,10 +102,14 @@ response
       }
     }
     
-THE LEAK. "companyId": "2" entry shouldn't be there, we are fetching data in context of company 1.
+THE LEAK. `"companyId": "2"`
+ 
+Transaction log of company 2 shouldn't show in the item of company 1...
+
+The problem is that it's not doing the db query with company_id = 1.
    
 The same happens if you do `companies`, one company listed will show transaction_log of other company    
-    
+        
 ### No Leak - Example
     
 TO DO. https://stackoverflow.com/questions/58363666/graphql-ruby-scoping-in-habtm-data-leak-in-nested-query
