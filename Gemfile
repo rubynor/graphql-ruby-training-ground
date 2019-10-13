@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -28,9 +28,22 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'devise'         # Devise is a flexible authentication solution for Rails based on Warden
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'  # Testing framework
+  gem 'fabrication'  # Test subject builder for the specs
+  gem 'faker'        # Create dummy data for the test objects
+  gem 'guard-rspec', require: false # automatically run tests on changes
+  gem 'dotenv-rails' # Handle env vars
+  gem 'capybara'     # Write tests that simulate how your users will use your application
+  gem 'foreman'      # To run app and webpack together
+  gem 'rubocop'      # code style rules
+  gem 'overcommit'   # Run Rubucop rules when committing
+  gem 'parallel_tests' # rails parallel:spec to run specs in parallel
+  gem 'bullet'       # Set env BULLET = true to activate. Bullet help to kill N+1 queries and unused eager loading
 end
 
 group :development do
@@ -41,6 +54,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
