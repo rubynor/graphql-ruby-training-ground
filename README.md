@@ -4,15 +4,12 @@ Simply working code, real examples
 
 Wishlist
 
--[x] Standard Rails setup (followed https://github.com/rubynor/rails-setup)
-
--[x] Simple queries
-
--[x] Complex relation with *habtm* models
-
--[x] Example Data Leak
--[ ] Example No Leak
--[ ] Example DB-Optimized nested queries
+ - [x] Standard Rails setup (followed https://github.com/rubynor/rails-setup)
+ - [x] Simple queries
+ - [x] Complex relation with *habtm* models
+ - [x] Example Data Leak
+ - [ ] Example No Leak
+ - [ ] Example DB-Optimized nested queries
 
 ## Test for yourself
 
