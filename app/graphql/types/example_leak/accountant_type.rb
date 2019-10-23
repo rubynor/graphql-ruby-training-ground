@@ -5,7 +5,9 @@ module Types
       field :name, String, null: false
       field :transaction_logs, [Types::ExampleLeak::TransactionLogType], null: true,
         resolve: ->(obj, args, ctx) {
-          TransactionLog.where(id: ctx.irep_node.parent.parent.arguments[:id])
+          company_leak = ctx.irep_node.parent.parent.arguments[:id]
+          companies_leak = ctx.parent.parent.object.object.id
+          TransactionLog.where(id: company_leak.present? ? company_leak : companies_leak)
         }
       field :companies, [Types::ExampleLeak::CompanyType], null: true
     end
