@@ -111,6 +111,92 @@ The same happens if you do `companies`, one company listed will show transaction
     
 TO DO. https://stackoverflow.com/questions/58363666/graphql-ruby-scoping-in-habtm-data-leak-in-nested-query
 
+### No Leak - Example V1 by Ahmadali1
+
+Solution provided by Ahmadali https://github.com/ahmadali1/graphql-ruby-training-ground
+
+See code under graphql/types/example_no_leak_v1
+
+query:
+
+    query {
+      companiesNoLeakV1 {
+        id
+        name
+        transactionLogs {
+          id
+          companyId
+          activityAt
+        }
+        accountants {
+          id
+          name
+          transactionLogs {
+            id
+            companyId
+            activityAt
+          }
+        }
+      }
+    }
+
+response
+
+    {
+      "data": {
+        "companiesNoLeakV1": [
+          {
+            "id": "1",
+            "name": "AwesomeCo",
+            "transactionLogs": [
+              {
+                "id": "1",
+                "companyId": "1",
+                "activityAt": "2019-10-12 16:40:13 UTC"
+              }
+            ],
+            "accountants": [
+              {
+                "id": "1",
+                "name": "Mr. Smith",
+                "transactionLogs": [
+                  {
+                    "id": "1",
+                    "companyId": "1",
+                    "activityAt": "2019-10-12 16:40:13 UTC"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "name": "BoringCo",
+            "transactionLogs": [
+              {
+                "id": "2",
+                "companyId": "2",
+                "activityAt": "2019-10-11 16:40:13 UTC"
+              }
+            ],
+            "accountants": [
+              {
+                "id": "1",
+                "name": "Mr. Smith",
+                "transactionLogs": [
+                  {
+                    "id": "2",
+                    "companyId": "2",
+                    "activityAt": "2019-10-11 16:40:13 UTC"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+
 ### DB-Optimization
 
 TO DO. Need some good skillz here
